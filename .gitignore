@@ -2,3 +2,4 @@
 .mta
 *.mtar
 *.jar
+/node_modules
