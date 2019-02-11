@@ -26,24 +26,22 @@ modules:
         parameters:
             memory: 128M
             disk_quota: 128M
+    -
+        name: user_create
+        type: html5
+        path: web/user_create
+        parameters:
+            disk-quota: 256M
+            memory: 256M
+        build-parameters:
+            builder: grunt
 resources:
-    - name: destination
-      type: destination
-      parameters:
-        service-plan: lite
-        shared: true
-
-    - name: connectivity
-      type: connectivity
-      parameters:
-        service-plan: lite
-        shared: true
     -
         name: pt_hdi
         parameters:
             service-plan: hdi-shared
             service: hanatrial
-            config: {schema: PT}
+            config: {schema: KA}
         properties:
             hdi-container-name: '${service-name}'
         type: com.sap.xs.hdi-container
