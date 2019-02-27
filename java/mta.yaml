@@ -1,9 +1,9 @@
-﻿ID: HW_3
+ID: KK
 _schema-version: "2.1"
-version: 0.0.1
+version: 0.0.2
 
 modules:
- - name: db
+ - name: dbjava
    type: hdb
    path: db
    parameters:
@@ -21,7 +21,7 @@ modules:
        command: [ clean, install ]
        defines:
          skipTests: true
-     build-result: target/pta-hw6-spring-demo-0.0.1-SNAPSHOT.jar
+     build-result: target/leverx-spring-demo-0.0.1-SNAPSHOT.jar
    parameters:
      memory: 1024M
      disk-quota: 512M
@@ -32,7 +32,7 @@ modules:
    requires:
      - name: pt_hdi
      - name: pt_dest
-     - name: pt_uaa
+     - name: javauaa
      - name: pt_conn
 
  - name: router
@@ -44,25 +44,25 @@ modules:
    requires:
      - name: pt_router
      - name: pt_dest
-     - name: pt_uaa
+     - name: javauaa
      - name: javarest
        group: destinations
        properties:
          name: javarest
          url: '~{url}'
          forwardAuthToken: true
-         
+
 resources:
  - name: pt_hdi
    parameters:
      service-plan: hdi-shared
      service: hanatrial
-     config: {schema: PTA}
+     config: {schema: KK}
    properties:
-     hdi-container-name: '${service-name}'
+     hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
 
- - name: pt_uaa
+ - name: javauaa
    type: org.cloudfoundry.managed-service
    parameters:
      service: xsuaa
