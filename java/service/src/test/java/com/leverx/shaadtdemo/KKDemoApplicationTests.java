@@ -1,4 +1,4 @@
-package com.leverx.shaadtdemo;
+package com.leverx.kkdemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-public class ShaadtDemoApplicationTests {
+public class kkDemoApplicationTests {
 
 	//@Test
 	public void contextLoads() {
